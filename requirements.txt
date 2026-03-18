@@ -1,0 +1,9 @@
+tensorflow==2.10.1
+tensorflow-serving-api==2.10.1
+fastapi==0.95.2
+uvicorn==0.22.0
+python-multipart==0.0.6
+pillow==12.1.0
+matplotlib==3.10.8
+numpy==1.23.5
+flask==2.2.5

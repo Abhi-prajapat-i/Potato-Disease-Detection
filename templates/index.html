@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🌱 Potato Leaf Disease Detector</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌱 Potato Disease Detection</h1>
+<p>Upload or capture a potato leaf image</p>
+
+<form method="POST" enctype="multipart/form-data" onsubmit="showLoader()">
+
+<input type="file" name="file" accept="image/*" onchange="previewUpload(event)">
+
+<hr>
+
+<div id="preview-area">
+
+<video id="video" width="300" autoplay style="display:none;"></video>
+
+{% if image_path %}
+<img id="preview" src="{{ image_path }}" width="300" style="display:block;">
+{% else %}
+<img id="preview" width="300" style="display:none;">
+{% endif %}
+
+</div>
+
+<br>
+
+<button type="button" class="icon-btn" onclick="startCamera()">
+    <samp>
+    <img src="https://img.icons8.com/arcade/64/camera--v1.png" class="icon-img" alt="camera">
+    </samp>
+</button>
+<button type="button" class="capture-btn" onclick="capture()">Capture</button>
+
+<canvas id="canvas" width="300" height="300" style="display:none;"></canvas>
+
+<input type="hidden" name="camera_image" id="camera_image">
+
+<br>
+
+<button type="submit" class="predict-btn">Predict Disease</button>
+
+</form>
+
+<div class="loader" id="loader"></div>
+
+{% if prediction %}
+<div class="result">
+Prediction: {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
