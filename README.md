@@ -59,7 +59,7 @@ Potato-Disease-Detection/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/potato-disease-detection.git
+git clone https://github.com/Abhi-prajapat-i/potato-disease-detection.git
 cd potato-disease-detection
 ```
 
