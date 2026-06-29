@@ -26,6 +26,7 @@ def index():
         if "file" in request.files:
 
             file = request.files["file"]
+            
 
             if file and file.filename != "":
                 filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
@@ -67,4 +68,7 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    port = int(os.environ.get("PORT", 7860))
+
+    app.run(host="0.0.0.0", port=port)
